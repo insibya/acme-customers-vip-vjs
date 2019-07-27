@@ -12,12 +12,12 @@
     Acme Customers <span class='VIP'>VIP</span>
   </div>
 
-  <form>
+  <form id = "superCoolForm">
     <h1>Customer Input</h1>
     Name <input type = 'text' name = "name"><br>
     Email <input type = 'text' name = "email"><br>
-    Are you Special? <input type = "checkbox"><br>
-    <input type = 'submit' value = "Submit">
+    Are you Special? <input type = "checkbox" name = "ck"><br>
+    <input id = "clikr" type = 'submit' value = "Submit">
   </form>
 
   <div id='counter'>
@@ -30,7 +30,7 @@
   <script>
     const people = document.querySelector("#list")
     const count = document.querySelector("#counter")
-    const formSubmit = document.querySelector("form")
+    const formSubmit = document.querySelector("#clikr")
     
     let customers = [
       { id: 1, name: 'moe', email: 'moe@gmail.com', isVIP: true},
@@ -61,8 +61,10 @@
     }
 
     formSubmit.addEventListener("click", (ev) => {
+    const form = document.getElementById("superCoolForm")
       ev.preventDefault()
-      console.log(ev.target)
+      
+      console.log(form.ck.checked)
       //customers.push()
     })
 
