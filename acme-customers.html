@@ -32,6 +32,8 @@
     const count = document.querySelector("#counter")
     const formSubmit = document.querySelector("#clikr")
     
+    let idSamp = 5;
+
     let customers = [
       { id: 1, name: 'moe', email: 'moe@gmail.com', isVIP: true},
       { id: 2, name: 'larry', isVIP: true, email: 'larry@gmail.com'},
@@ -63,12 +65,16 @@
     formSubmit.addEventListener("click", (ev) => {
     const form = document.getElementById("superCoolForm")
       ev.preventDefault()
-      
-      console.log(form.ck.checked)
-      //customers.push()
+      let thing = {
+        id: idSamp,
+        name: form.name.value,
+        email: form.email.value,
+        isVIP: form.ck.checked
+      }
+      customers.push(thing)
+      render()
     })
 
     render()
-
   </script>
 </body>
