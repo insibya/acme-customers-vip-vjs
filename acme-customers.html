@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <head>
-  <styles>
-
-  </styles>
+  <style>
+    .VIP{
+      color: ivory;
+      background-color: dodgerblue;
+    }
+  </style>
 </head>
 <body>
   <div id='title'>
-    Acme Customers <span class='vip'>VIP</span>
+    Acme Customers <span class='VIP'>VIP</span>
   </div>
   <form>
     <h1>Customer Input</h1>
@@ -23,6 +26,33 @@
   </div>
 
   <script>
-    
+    const people = document.querySelector("#list")
+    const count = document.querySelector("#counter")
+
+    let customers = [
+      { id: 1, name: 'moe', email: 'moe@gmail.com', isVIP: true},
+      { id: 2, name: 'larry', isVIP: true, email: 'larry@gmail.com'},
+      { id: 4, name: 'shep', email: 'shep@gmail.com'},
+    ];
+    let VIPnum = 0;
+
+    const render = ()=>{
+      const pplLoad = customers.map((person, numba) =>{
+        if (person.isVIP){
+          VIPnum++
+          return `
+            <li class = "VIP">${person.name} <button>Remove</button></li>
+          `;
+        } else {
+          return `
+            <li>${person.name} <button>Annihilation</button></li>
+          `;
+        }
+      }).join('')
+      people.innerHTML = pplLoad
+      count.innerHTML = `${VIPnum} VIPS`
+    }
+
+    render()
   </script>
 </body>
